@@ -1,0 +1,28 @@
+_Layout.cshtml
+
+@RenderSection("Scripts", false); 
+Add that line to wherever you want your scripts to show on the page. Preferrably the bottom.
+
+
+--------------------------------------------------------------------------------------------
+PartialView.cshtml
+
+@{
+    Html.RequireScript("knockout-2.1.0.js");
+}
+
+Add that anywhere in your partial view
+
+
+----------------------------------------------------------------------------------------------
+PageThatRendersThePartialView.cshtml
+
+@section Scripts{
+    @Html.IncludeRequiredScripts()
+}
+
+Add that to the Scripts section of the page. This will ensure the scripts are included wherever the 
+Script section is on the _Layout page.
+
+
+That's all folks
